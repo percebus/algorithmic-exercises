@@ -1,7 +1,7 @@
 {
-  "name": "algorithmic-excercises",
+  "name": "algorithmic-exercises",
   "version": "0.1.0",
-  "description": "Algorithmic excercises",
+  "description": "Algorithmic exercises",
   "main": "FIXME",
   "scripts": {
     "pip:upgrade:pip": "python -m pip install --upgrade pip",

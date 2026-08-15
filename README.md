@@ -1,14 +1,14 @@
-# algorithmic-excercises
+# algorithmic-exercises
 
 [`CHANGELOG`](./CHANGELOG.md) |
 [`TODO`s](./TODO.md) |
 [`LICENSE`](./LICENSE.md)
 
 [![License: UnLicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
-[![[C]ontinuous [I]ntegration](https://github.com/percebus/algorithmic-excercises/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/algorithmic-excercises/actions/workflows/always.yml)
-[![Pull Request](https://github.com/percebus/algorithmic-excercises/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/algorithmic-excercises/actions/workflows/pull_request.yml)
-[![coverage](https://percebus.github.io/algorithmic-excercises/badges/coverage.svg)](https://github.com/percebus/algorithmic-excercises/actions)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/percebus/algorithmic-excercises)](https://github.com/percebus/algorithmic-excercises/releases)
+[![[C]ontinuous [I]ntegration](https://github.com/percebus/algorithmic-exercises/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/algorithmic-exercises/actions/workflows/always.yml)
+[![Pull Request](https://github.com/percebus/algorithmic-exercises/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/algorithmic-exercises/actions/workflows/pull_request.yml)
+[![coverage](https://percebus.github.io/algorithmic-exercises/badges/coverage.svg)](https://github.com/percebus/algorithmic-exercises/actions)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/percebus/algorithmic-exercises)](https://github.com/percebus/algorithmic-exercises/releases)
 
 ## Badges
 

@@ -1,12 +1,13 @@
--e git+https://github.com/percebus/algorithmic-excercises@9b13653932cdcb5eb444d0adbd8fb9bbdd535c3f#egg=algorithmic_excercises
+-e git+ssh://git@github.com/percebus/algorithmic-exercises.git@8e7e6c184a3e0a1566c5a23013516d4479339aae#egg=algorithmic_excercises
 annotated-types==0.7.0
-argcomplete==3.7.0
+argcomplete==3.7.2
 astroid==3.3.8
 click==8.4.2
+colorama==0.4.6
 coverage==7.6.10
 dill==0.3.9
 docutils==0.21.2
-filelock==3.31.0
+filelock==3.32.3
 flake8==7.1.1
 gherkin-official==29.0.0
 gil==1.25.0.0
@@ -28,7 +29,7 @@ pandas==2.2.2
 pandas-stubs==2.2.3.241009
 parse==1.20.2
 parse_type==0.6.3
-pipx==1.16.0
+pipx==1.16.7
 platformdirs==4.3.6
 pluggy==1.5.0
 pycodestyle==2.12.1

@@ -3,4 +3,4 @@
 -r requirements.poetry.dev.txt
 
 # TODO?
-# -e git+ssh://git@github.com/percebus/algorithmic-excercises.git@main#egg=algorithmic_excercises
+# -e git+ssh://git@github.com/percebus/algorithmic-exercises.git@main#egg=algorithmic_exercises
