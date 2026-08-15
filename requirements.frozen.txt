@@ -1,9 +1,8 @@
--e git+ssh://git@github.com/percebus/algorithmic-exercises.git@8e7e6c184a3e0a1566c5a23013516d4479339aae#egg=algorithmic_excercises
+-e git+https://github.com/percebus/algorithmic-exercises@3cd4ac509277adbc9fc561b6555f96ecce31d69d#egg=algorithmic_exercises
 annotated-types==0.7.0
 argcomplete==3.7.2
 astroid==3.3.8
 click==8.4.2
-colorama==0.4.6
 coverage==7.6.10
 dill==0.3.9
 docutils==0.21.2

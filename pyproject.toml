@@ -1,6 +1,6 @@
 [project]
 name = "algorithmic-exercises"
-version = "3.11.6"
+version = "4.0.0"
 description = ""
 authors = [
     {name = "JCystems"}

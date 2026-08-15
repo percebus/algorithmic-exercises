@@ -2,6 +2,18 @@
 
 <!-- version list -->
 
+## v4.0.0 (2026-08-15)
+
+### Refactoring
+
+- Rename project ([#111](https://github.com/percebus/algorithmic-exercises/pull/111),
+  [`3cd4ac5`](https://github.com/percebus/algorithmic-exercises/commit/3cd4ac509277adbc9fc561b6555f96ecce31d69d))
+
+### Breaking Changes
+
+- Everything is different now
+
+
 ## v3.11.6 (2026-07-20)
 
 ### Bug Fixes
