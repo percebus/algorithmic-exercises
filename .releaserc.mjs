@@ -9,7 +9,7 @@ export default {
     [
       "@semantic-release/changelog",
       {
-        changelogTitle: "# algorithmic-excercises CHANGELOG",
+        changelogTitle: "# algorithmic-exercises CHANGELOG",
       },
     ],
     [

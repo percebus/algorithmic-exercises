@@ -1,4 +1,4 @@
-# algorithmic-excercises
+# algorithmic-exercises
 
 ## TODOs
 
