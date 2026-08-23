@@ -31,16 +31,27 @@ jobs:
       pull-requests: write # to be able to comment on released pull requests
       security-events: write
     steps:
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/commons/.github/actions/checkout@main
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
 
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-python/.github/actions/setup@main
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-pip/.github/actions/install-upgrade@main
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-pipx/.github/actions/install@main
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-poetry/.github/actions/self_add_plugins@main
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-poetry/.github/actions/install@main
 
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-compliance/.github/actions/codeql_init_and_analyze@main
         with:
           language: python
@@ -50,7 +61,10 @@ jobs:
         run: pypyr lock freeze=True
 
       # prettier & dockerlint
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-node/.github/actions/setup@main
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-npm/.github/actions/install@main
 
       - name: pypyr lint
@@ -62,6 +76,7 @@ jobs:
       - name: doctest
         run: bash scripts/doctest/run.ba.sh
 
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-testing/.github/actions/junit@main
         with:
           reporter: python-xunit
@@ -71,9 +86,11 @@ jobs:
       - name: poetry build
         run: poetry build
 
-      - name: dist.zip
-        uses: percebus/github-actions-common/.github/actions/artifact-upload@main
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
+      - uses: percebus/github-actions-common/.github/actions/artifact-upload@main
+        name: dist.zip
 
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-python/.github/actions/semantic-release@main
         continue-on-error: true # XXX FIXME
         with:
@@ -96,11 +113,15 @@ jobs:
     needs: verify
     runs-on: ubuntu-latest
     steps:
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
 
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-python/.github/actions/setup@main
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-node/.github/actions/setup@main
 
       - name: scripts/setup_ci.ba.sh
@@ -112,7 +133,7 @@ jobs:
   #
   verify__matrix:
     needs: verify
-    if: github.ref == 'refs/heads/main'
+    if: github.ref_name == 'main'
     strategy:
       fail-fast: false
       max-parallel: 10
@@ -151,21 +172,33 @@ jobs:
     runs-on: ${{ matrix.OS }}
     name: "Verify: python@${{ matrix.python-version }} @ ${{ matrix.OS }}@${{ matrix.architecture }}"
     steps:
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
 
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-python/.github/actions/setup@main
         with:
           python-version: ${{ matrix.python-version }}
           architecture: ${{ matrix.architecture }}
 
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-pip/.github/actions/install-upgrade@main
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-pipx/.github/actions/install@main
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-poetry/.github/actions/self_add_plugins@main
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-poetry/.github/actions/install@main
 
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-node/.github/actions/setup@main
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-npm/.github/actions/install@main
 
       - name: pypyr test
@@ -173,38 +206,23 @@ jobs:
 
   #
   codeQL_actions:
-    name: codeQL
     needs: verify
     permissions:
       actions: read
       contents: read
       security-events: write
+
+    # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
     uses: percebus/github-actions-compliance/.github/workflows/codeql_analyze.yml@main
+    name: CodeQL analyze
     with:
       language: actions
     secrets:
       SSH_KEY_PRIVATE: ${{ secrets.SSH_KEY_PRIVATE }}
 
   #
-  # TODO? move this to github-actions-docker ?
-  docker_compose:
-    name: docker compose
-    needs: verify
-    runs-on: ubuntu-latest
-    steps:
-      - uses: percebus/github-actions-common/.github/actions/checkout@main
-        with:
-          ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
-
-      - name: scripts/prepare.ba.sh
-        run: bash scripts/prepare.ba.sh
-
-      - name: docker compose up
-        run: docker compose up --abort-on-container-exit
-
-  #
   docker_build__matrix:
-    needs: docker_compose
+    needs: verify
     continue-on-error: true
     permissions:
       actions: read
@@ -224,12 +242,13 @@ jobs:
           # - base
           # - project
           - target: release
-            run: ${{ github.ref == 'refs/heads/main' }}
-            scan-image: ${{ github.ref == 'refs/heads/main' }}
+            run: ${{ github.ref_name == 'main' }}
+            scan-image: ${{ github.ref_name == 'main' }}
 
     runs-on: ubuntu-latest
     name: docker build --target ${{ matrix.target }}
     steps:
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         if: ${{ matrix.run }}
         with:
@@ -239,8 +258,27 @@ jobs:
         if: ${{ matrix.run }}
         run: bash scripts/prepare.ba.sh
 
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-docker/.github/actions/build@main
         if: ${{ matrix.run }}
         with:
           target: ${{ matrix.target }}
           scan-image: ${{ matrix.scan-image }}
+
+  #
+  # TODO? move this to github-actions-docker ?
+  docker_compose:
+    name: docker compose
+    needs: docker_build__matrix
+    runs-on: ubuntu-latest
+    steps:
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
+
+      - name: scripts/prepare.ba.sh
+        run: bash scripts/prepare.ba.sh
+
+      - name: docker compose up
+        run: docker compose up --abort-on-container-exit
