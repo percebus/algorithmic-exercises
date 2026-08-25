@@ -28,7 +28,8 @@ jobs:
       contents: read
       pull-requests: read
     with:
-      audit-requirements-file: requirements.release.txt
+      audit-requirements-file: requirements.poetry.dev.txt
+      release-requirements-file: requirements.poetry.main.txt
 
   # package.json dependencies
   github-actions-npm:
