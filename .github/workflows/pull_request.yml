@@ -13,13 +13,6 @@ permissions:
   contents: read
 
 jobs:
-  github-actions-compliance:
-    # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
-    uses: percebus/github-actions-compliance/.github/workflows/semantic-pull-request.yml@main
-    name: github-actions-compliance
-    permissions:
-      pull-requests: read
-
   github-actions-pipx:
     # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
     uses: percebus/github-actions-pipx/.github/workflows/dependency-review.yml@main
