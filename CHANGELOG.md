@@ -2,6 +2,22 @@
 
 <!-- version list -->
 
+## v5.0.0 (2026-08-29)
+
+### Chores
+
+- Update dependencies ([#120](https://github.com/percebus/algorithmic-exercises/pull/120),
+  [`3da8305`](https://github.com/percebus/algorithmic-exercises/commit/3da8305795f39feacbd52427418d58b42f800fa9))
+
+- **`pull_request`**: Pass `release-requirements-file`
+  ([#117](https://github.com/percebus/algorithmic-exercises/pull/117),
+  [`410fe10`](https://github.com/percebus/algorithmic-exercises/commit/410fe102a957fd21118a72986c3f380407467484))
+
+- **`workflows`**: Swap `docker compose` & `docker build`
+  ([#114](https://github.com/percebus/algorithmic-exercises/pull/114),
+  [`10e2e11`](https://github.com/percebus/algorithmic-exercises/commit/10e2e1144f0ff847e558ed53011ad67d3e558270))
+
+
 ## v4.0.0 (2026-08-15)
 
 ### Refactoring
