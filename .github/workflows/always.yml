@@ -72,7 +72,7 @@ jobs:
 
       - name: pypyr test
         # run: pypyr ci lint=False
-        run: bash script/pytest/ci.ba.sh
+        run: bash scripts/pytest/ci.ba.sh
 
       - name: doctest
         run: bash scripts/doctest/run.ba.sh
