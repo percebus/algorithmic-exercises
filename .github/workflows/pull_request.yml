@@ -23,7 +23,7 @@ jobs:
   github-actions-pipx:
     # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
     uses: percebus/github-actions-pipx/.github/workflows/dependency-review.yml@main
-    name: github-actions-pipx
+    name: pipx
     permissions:
       contents: read
       pull-requests: read
