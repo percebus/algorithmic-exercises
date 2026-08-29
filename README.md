@@ -5,10 +5,13 @@
 [`LICENSE`](./LICENSE.md)
 
 [![License: UnLicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
-[![[C]ontinuous [I]ntegration](https://github.com/percebus/algorithmic-exercises/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/algorithmic-exercises/actions/workflows/always.yml)
-[![Pull Request](https://github.com/percebus/algorithmic-exercises/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/algorithmic-exercises/actions/workflows/pull_request.yml)
 [![coverage](https://percebus.github.io/algorithmic-exercises/badges/coverage.svg)](https://github.com/percebus/algorithmic-exercises/actions)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/percebus/algorithmic-exercises)](https://github.com/percebus/algorithmic-exercises/releases)
+
+- [![[C]ontinuous [I]ntegration](https://github.com/percebus/algorithmic-exercises/actions/workflows/always.yml/badge.svg)](https://github.com/percebus/algorithmic-exercises/actions/workflows/always.yml)
+- [![Security](https://github.com/percebus/algorithmic-exercises/actions/workflows/security.yml/badge.svg)](https://github.com/percebus/algorithmic-exercises/actions/workflows/security.yml)
+- [![Pull Request](https://github.com/percebus/algorithmic-exercises/actions/workflows/pull_request.yml/badge.svg?event=pull_request)](https://github.com/percebus/algorithmic-exercises/actions/workflows/pull_request.yml)
+- [![Semantic Pull-Request](https://github.com/percebus/algorithmic-exercises/actions/workflows/pull_request_target.yml/badge.svg)](https://github.com/percebus/algorithmic-exercises/actions/workflows/pull_request_target.yml)
 
 ## Badges
 

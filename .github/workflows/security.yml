@@ -1,0 +1,22 @@
+name: Security
+
+on:
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+  pull_request:
+    paths:
+      - .github/workflows/security.yml
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  semgrep_scan:
+    uses: percebus/github-actions-pipx/.github/workflows/run_semgrep_scan.yml@main
+    name: pipx run
