@@ -17,5 +17,6 @@ permissions:
   contents: read
 
 jobs:
-  default:
+  semgrep_scan:
     uses: percebus/github-actions-pipx/.github/workflows/run_semgrep_scan.yml@main
+    name: pipx run
