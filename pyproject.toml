@@ -7,58 +7,41 @@ authors = [
 ]
 license = {text = "SEE LICENSE IN LICENSE.md"}
 readme = "README.md"
-requires-python = ">=3.12,<4.0.0"
+requires-python = ">=3.14,<4.0.0"
 dependencies = [
     "logger (>=1.4,<2.0.0)",
     "logging (>=0.4.9.6,<1.0.0)",
     "logging-config (>=1.0.4,<2.0.0)",
-    "more-itertools (>=10.3.0,<11.0.0)",
-    "numpy (>=2.0.0,<3.0.0)",
-    "pandas (>=2.2.2,<3.0.0)",
-    "pandas-stubs (>=2.2.3.241009,<3.0.0)", # py-hamcrest not found w/o stubs
-    "pydantic-settings (>=2.3.4,<3.0.0)",
+    "more-itertools (>=11.1.0,<12.0.0)",
+    "numpy (>=2.5.2,<3.0.0)",
+    "pandas (>=3.0.5,<4.0.0)",
+    "pandas-stubs (>=3.0.5.260730,<4.0.0)", # pandas not found w/o stubs
+    "pydantic-settings (>=2.15.0,<3.0.0)",
 
     # NOTE: Normally this is a dev.dependency
     # But we're using it in __main__.py files for smoke tests
-    "pyhamcrest (>=2.1.0,<3.0.0)"
+    "PyHamcrest (>=2.1.0,<3.0.0)"
 ]
 
 [tool.poetry]
 packages = [{include = "problems", from = "src"}]
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.4.3"
+pytest = "^9.1.1"
 pytest-bdd = "^8.1.0"
-pytest-cov = "^5.0.0"
-pytest-doctestplus = "^1.4.0"
+pytest-cov = "^7.1.0"
+pytest-doctestplus = "^1.7.1"
 pytest-dotenv = "^0.5.2"
 
 
 [tool.poetry.group.cli.dependencies]
-flake8 = "^7.1.1"
-mypy = "^1.14.1"
-pylint = "^3.3.3"
-pyright = "^1.1.391"
-rst2md = "^0.1.1"
-ruff = "~0.12.4"
+flake8 = "^7.3.0"
+mypy = "^2.3.1"
+pylint = "^4.0.8"
+pyright = "^1.1.411"
+rst2md = "~0.1.1"
+ruff = "~0.16.5"
 
-
-[tool.pyright]
-venvPath = "."
-venv = ".venv"
-defineConstant = { DEBUG = true }
-typeCheckingMode = "strict"
-include = ["src"]
-strict = ["src"]
-stubPath = "typings"
-# ignore = ["src/oldstuff"] # NOTE what is the difference between exclude and ignore?
-exclude = [
-    ".venv",
-    "typings",
-    "**/node_modules",
-    "**/__pycache__",
-    "**/test*.py",
-]
 
 [tool.coverage.run]
 omit = [
@@ -76,5 +59,5 @@ create = true
 in-project = true
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core>=2.4.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
