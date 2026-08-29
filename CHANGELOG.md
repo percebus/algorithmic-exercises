@@ -2,6 +2,23 @@
 
 <!-- version list -->
 
+## v5.1.0 (2026-08-29)
+
+### Features
+
+- **`workflows`**: `semgrep scan`
+  ([#123](https://github.com/percebus/algorithmic-exercises/pull/123),
+  [`edf37b3`](https://github.com/percebus/algorithmic-exercises/commit/edf37b315ab3509417c6f4d207a94243433fe495))
+
+### Testing
+
+- Remove `3.15` for now
+  ([`a4ecb85`](https://github.com/percebus/algorithmic-exercises/commit/a4ecb856ffaf1c7589c7e342bbaea3b32a740e66))
+
+- **`always.yml`**: `3.14` & `3.15`
+  ([`31c558e`](https://github.com/percebus/algorithmic-exercises/commit/31c558ee4b3cb172caf79d4430947628ccb4b1cd))
+
+
 ## v5.0.0 (2026-08-29)
 
 ### Chores
