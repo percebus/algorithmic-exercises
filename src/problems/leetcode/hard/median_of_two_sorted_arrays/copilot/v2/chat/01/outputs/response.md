@@ -3,9 +3,10 @@ Here is a Python implementation of the `Solution` class that satisfies the featu
 ```python
 from typing import Protocol, List
 
+
 class Solution(Protocol):
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        ...
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float: ...
+
 
 class MedianFinder:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
@@ -21,11 +22,11 @@ class MedianFinder:
             partitionY = (x + y + 1) // 2 - partitionX
 
             # Handle edge cases for partitions
-            maxX = float('-inf') if partitionX == 0 else nums1[partitionX - 1]
-            minX = float('inf') if partitionX == x else nums1[partitionX]
+            maxX = float("-inf") if partitionX == 0 else nums1[partitionX - 1]
+            minX = float("inf") if partitionX == x else nums1[partitionX]
 
-            maxY = float('-inf') if partitionY == 0 else nums2[partitionY - 1]
-            minY = float('inf') if partitionY == y else nums2[partitionY]
+            maxY = float("-inf") if partitionY == 0 else nums2[partitionY - 1]
+            minY = float("inf") if partitionY == y else nums2[partitionY]
 
             # Check if we have found the correct partition
             if maxX <= minY and maxY <= minX:

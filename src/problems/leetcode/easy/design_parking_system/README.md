@@ -17,9 +17,7 @@ Implement the `ParkingSystem` class:
 **Example 1:**
 
 ```pycon
->>> processor.process(
-...     ["ParkingSystem", "addCar", "addCar", "addCar", "addCar"],
-...     [[1, 1, 0]      , [big]   , [medium], [small] , [big]])
+>>> processor.process(["ParkingSystem", "addCar", "addCar", "addCar", "addCar"], [[1, 1, 0], [big], [medium], [small], [big]])
 [None, True, True, False, False]
 
 ```
