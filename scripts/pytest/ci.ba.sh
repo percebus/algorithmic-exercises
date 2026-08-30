@@ -6,7 +6,7 @@ markers="not integration"
 rm -rf reports
 
 # Find all test files recursively
-find . -type f -name "test_*.py" | while read -r file; do
+find src tests -type f -name "test_*.py" | while read -r file; do
     set -x
 
     # Get the directory path relative to tests/ (e.g., "auth/api")
