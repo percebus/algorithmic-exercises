@@ -70,11 +70,8 @@ jobs:
       - name: pypyr lint
         run: pypyr lint stats=True
 
-      - name: pytest
-        run: pypyr ci lint=False
-
       - name: pytest per-file
-        run: bash script/pytest/ci.ba.sh
+        run: bash scripts/pytest/ci.ba.sh
 
       - name: doctest
         run: bash scripts/doctest/run.ba.sh
@@ -85,6 +82,10 @@ jobs:
           reporter: python-xunit
           files_pattern: reports/**/junit-test*.xml
           # list-tests: all # XXX
+
+      # Re-run tests for coverage purposes
+      - name: pytest
+        run: pypyr ci lint=False
 
       - name: poetry build
         run: poetry build
