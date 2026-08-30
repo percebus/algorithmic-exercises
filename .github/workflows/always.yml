@@ -70,8 +70,12 @@ jobs:
       - name: pypyr lint
         run: pypyr lint stats=True
 
-      - name: pypyr test
+      # Re-run tests for coverage purposes
+      - name: pytest
         run: pypyr ci lint=False
+
+      - name: pytest per-file
+        run: bash scripts/pytest/ci.ba.sh
 
       - name: doctest
         run: bash scripts/doctest/run.ba.sh
@@ -80,8 +84,9 @@ jobs:
       - uses: percebus/github-actions-testing/.github/actions/junit@main
         with:
           reporter: python-xunit
-          files_pattern: test-results.xml
-          list-tests: all
+          files_pattern: reports/**/junit-test*.xml
+          list-suites: failed
+          # list-tests: all # XXX
 
       - name: poetry build
         run: poetry build
