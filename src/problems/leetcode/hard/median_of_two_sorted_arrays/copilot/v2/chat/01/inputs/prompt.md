@@ -4,6 +4,5 @@ The code must implement this Protocol
 
 ```python
 class Solution(Protocol):
-    def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
-        ...
+    def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float: ...
 ```

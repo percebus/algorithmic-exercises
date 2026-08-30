@@ -1,7 +1,7 @@
 line-length = 150
 indent-width = 4
 show-fixes = true
-exclude = [".git", "typings"]
+exclude = [".git", "typings", "conftest.py", "*.md"]
 
 # Minimum Python version: 3.12
 target-version = "py312"
