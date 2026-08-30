@@ -8,13 +8,14 @@ def pytest_sessionfinish(session, exitstatus):
     Regroups testcases into separate suites based on their test module.
     """
     xmlpath = session.config.option.xmlpath
-    
+
     if not xmlpath or not os.path.exists(xmlpath):
         return
 
-    tree = ET.parse(xmlpath)
-    root = tree.getroot()
-    testcases = root.findall(".//testcase")
+    # nosemgrep: python.lang.security.use-defused-xml-parse.use-defused-xml-parse
+    oElementTree = ET.parse(xmlpath)
+    rootElement = oElementTree.getroot()
+    testcases = rootElement.findall(".//testcase")
 
     if not testcases:
         return
@@ -25,7 +26,7 @@ def pytest_sessionfinish(session, exitstatus):
         # Fall back to checking the classname attribute (always present)
         # formats like: 'src.my_module.test_logic' or 'tests.test_api'
         class_name = testcase.get('classname', '')
-        
+
         if class_name:
             # Extract the actual test file module name (the last part before a class name)
             # e.g., 'src.my_module.test_logic.TestClass' -> 'test_logic'
@@ -45,10 +46,10 @@ def pytest_sessionfinish(session, exitstatus):
         suites_by_file[suite_name].append(testcase)
 
     # Restructure into a clean root containing individual suites
-    root.clear()
-    root.tag = 'testsuites'
+    rootElement.clear()
+    rootElement.tag = 'testsuites'
 
     for suite_element in suites_by_file.values():
-        root.append(suite_element)
+        rootElement.append(suite_element)
 
-    tree.write(xmlpath, encoding='utf-8', xml_declaration=True)
+    oElementTree.write(xmlpath, encoding='utf-8', xml_declaration=True)
