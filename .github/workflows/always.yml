@@ -70,6 +70,10 @@ jobs:
       - name: pypyr lint
         run: pypyr lint stats=True
 
+      # Re-run tests for coverage purposes
+      - name: pytest
+        run: pypyr ci lint=False
+
       - name: pytest per-file
         run: bash scripts/pytest/ci.ba.sh
 
@@ -83,10 +87,6 @@ jobs:
           files_pattern: reports/**/junit-test*.xml
           list-suites: failed
           # list-tests: all # XXX
-
-      # Re-run tests for coverage purposes
-      - name: pytest
-        run: pypyr ci lint=False
 
       - name: poetry build
         run: poetry build
