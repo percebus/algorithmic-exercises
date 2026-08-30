@@ -81,6 +81,7 @@ jobs:
         with:
           reporter: python-xunit
           files_pattern: reports/**/junit-test*.xml
+          list-suites: failed
           # list-tests: all # XXX
 
       # Re-run tests for coverage purposes
