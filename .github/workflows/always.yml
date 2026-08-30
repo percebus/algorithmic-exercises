@@ -82,8 +82,6 @@ jobs:
         with:
           reporter: python-xunit
           files_pattern: test-results.xml
-          # list-suites: all
-          # list-tests: all # XXX
 
       - name: poetry build
         run: poetry build
