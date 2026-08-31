@@ -1,7 +1,12 @@
-import logging
+from typing import TYPE_CHECKING
+
+from dotenv import load_dotenv
+from lagom import Container
 
 # TODO make each module self contained and importable
 # TODO or perhaps look recursively for all '__main__' modules in the problems directory
+from problems.config.configuration import Configuration
+from problems.dependency_injection.container import create_container
 from problems.euler.even_fibonacci_numbers import __main__ as sum_fibonacci_evens
 from problems.euler.largest_palindrome_product import __main__ as largest_palindrome_product
 from problems.euler.largest_prime_factor import __main__ as largest_prime_factor
@@ -21,6 +26,10 @@ from problems.leetcode.medium.rotate_image import __main__ as rotate_image
 from problems.meta.coding.puzzles.warmup.all_wrong import __main__ as all_wrong
 from problems.meta.coding.puzzles.warmup.battleship import __main__ as battleship
 from problems.meta.coding.puzzles.warmup.sum_abc import __main__ as sum_abc
+
+if TYPE_CHECKING:
+    from logging import Logger
+
 
 # fmt: off
 modules = [
@@ -47,15 +56,23 @@ modules = [
 # fmt: on
 
 
-def run() -> None:
-    logging.basicConfig(level=logging.INFO)
-    logging.info("Running all problems vvv")
+def run(container: Container) -> None:
+    configuration = container[Configuration]
+    logger: Logger = configuration.logger
+    logger.info("Running all problems vvv")
     for module in modules:
         print(f"{module.__name__}", end=": ")
         module.run()
         print("")  # Force a \n
-    logging.info("All problems ^^^ ran successfully!")
+
+    logger.info("All problems ^^^ ran successfully!")
+
+
+def main() -> None:
+    load_dotenv()
+    container: Container = create_container()
+    run(container)
 
 
 if __name__ == "__main__":
-    run()
+    main()
