@@ -13,7 +13,7 @@ class Configuration:
     settings: Settings = field(default_factory=Settings)
 
     # pylint: disable=W0108 # unnecessary-lambda
-    logging: dict[str, Any] | None = field(init=False, default=None)
+    logging: dict[str, Any] = field(init=False)
     # pylint: enable=W0108
 
     logger: Logger = field(init=False)
