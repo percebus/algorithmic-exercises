@@ -2,6 +2,28 @@
 
 <!-- version list -->
 
+## v5.2.0 (2026-08-31)
+
+### Documentation
+
+- **`README.md`**: Tweak badges
+  ([`04276bc`](https://github.com/percebus/algorithmic-exercises/commit/04276bc19814d057ab9857da9ce9b49fd713e8de))
+
+### Features
+
+- Dependency Injection w/ `lagom`
+  ([#132](https://github.com/percebus/algorithmic-exercises/pull/132),
+  [`7b00466`](https://github.com/percebus/algorithmic-exercises/commit/7b004666882d0a95d562a6978f37044d105a3cdc))
+
+### Testing
+
+- Split test-suites ([#129](https://github.com/percebus/algorithmic-exercises/pull/129),
+  [`aac1682`](https://github.com/percebus/algorithmic-exercises/commit/aac168244126cf16f7de2747ad335b939c790079))
+
+- Use `conftest.py` ([#130](https://github.com/percebus/algorithmic-exercises/pull/130),
+  [`af3e682`](https://github.com/percebus/algorithmic-exercises/commit/af3e682d5e2387d24dc994e7ce08d7f9a10281d8))
+
+
 ## v5.1.0 (2026-08-29)
 
 ### Features
