@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     debug: Optional[bool] = Field(default=False)
 
     # pylint: disable=W0108 # unnecessary-lambda
-    logging_config: Optional[str] = Field(default="data/config/logging.json")
+    logging_config: Optional[str] = Field(default="config/logging.json")
     # pylint: enable=W0108
 
     def safe_model_dump(self) -> Optional[dict[str, Any]]:
