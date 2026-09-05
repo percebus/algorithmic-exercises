@@ -39,14 +39,6 @@ jobs:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
-      # XXX
-      # TODO
-      # # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
-      # - uses: percebus/commons/.github/actions/checkout@main
-      #   with:
-      #     token: ${{ steps.github-app-token.outputs.token }}
-      #     persist-credentials: false
-
       # TODO? incorporate into `github-actions-common/.../checkout`?
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: actions/checkout@v7
@@ -54,14 +46,6 @@ jobs:
         with:
           token: ${{ steps.github-app-token.outputs.token }}
           persist-credentials: false
-
-      # XXX
-      # # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
-      # - uses: percebus/github-actions-common/.github/actions/checkout@main
-      #   with:
-      #     ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
-      #     repository: percebus/commons
-      #     path: repositories/commons
 
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-python/.github/actions/setup@main
@@ -78,8 +62,10 @@ jobs:
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-poetry/.github/actions/install@main
 
-      - name: gil clone
-        run: gil clone
+      - name: repositories/commons/scripts
+        run: |
+          gil clone
+          bash repositories/commons/scripts/prepare.ba.sh
 
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-compliance/.github/actions/codeql_init_and_analyze@main
