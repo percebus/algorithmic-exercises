@@ -111,7 +111,7 @@ jobs:
         continue-on-error: true # XXX FIXME
         with:
           verbosity: 1
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ steps.github-app-token.outputs.token }}
 
       - name: git restore
         run: git restore .
