@@ -39,8 +39,7 @@
 
 ### Python
 
-- ![Python](https://img.shields.io/badge/python-3.12.8-yellow.svg) ![Python](https://img.shields.io/badge/python-3.12.x-yellow.svg)
-- ![Python](https://img.shields.io/badge/python-3.13.x-yellow.svg)
+- ![Python](https://img.shields.io/badge/python-3.14.x-yellow.svg) ![Python](https://img.shields.io/badge/python-3.14.7-yellow.svg)
 
 ### Operating Systems
 
