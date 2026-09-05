@@ -31,20 +31,37 @@ jobs:
       pull-requests: write # to be able to comment on released pull requests
       security-events: write
     steps:
-      - name: create-github-app-token
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
+      - uses: actions/create-github-app-token@v1
+        name: create-github-app-token
         id: github-app-token
-        uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
-      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
+      # TODO
+      # # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
+      # - uses: percebus/commons/.github/actions/checkout@main
+      #   with:
+      #     token: ${{ steps.github-app-token.outputs.token }}
+      #     persist-credentials: false
+
       # TODO? incorporate into `github-actions-common/.../checkout`?
-      - name: checkout
-        uses: actions/checkout@v7
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
+      - uses: actions/checkout@v7
+        name: checkout
         with:
           token: ${{ steps.github-app-token.outputs.token }}
           persist-credentials: false
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
+      - uses: percebus/github-actions-common/.github/actions/checkout@main
+        with:
+          ssh-private-key: ${{ inputs.ssh-private-key }}
+          repository: percebus/commons
+          path: repositories/commons
+          # sparse-checkout: "scripts"  # TODO
+          ls_options: ${{ inputs.ls_options }}
 
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-python/.github/actions/setup@main
@@ -67,7 +84,7 @@ jobs:
           language: python
 
       - name: pypyr lock
-        # if: github.ref == 'refs/heads/main' # TODO? or XXX?
+        # if: github.ref_name == 'main' # TODO? or XXX?
         run: pypyr lock freeze=True
 
       # prettier & dockerlint
@@ -113,7 +130,7 @@ jobs:
       # FIXME
       # TODO Move to `github-actions-testing`
       # - name: coverage-badge
-      #   if: github.ref == 'refs/heads/main'
+      #   if: github.ref_name == 'main'
       #   # uses: we-cli/coverage-badge-action@v1.0.1  # TODO
       #   uses: we-cli/coverage-badge-action@main
 
