@@ -2,6 +2,28 @@
 
 <!-- version list -->
 
+## v6.0.0 (2026-09-05)
+
+### Bug Fixes
+
+- Another try
+  ([`58119f9`](https://github.com/percebus/algorithmic-exercises/commit/58119f97d58cd9194cb1e1995bf83c95494a7108))
+
+- README's `python` version
+  ([`2cf68c4`](https://github.com/percebus/algorithmic-exercises/commit/2cf68c4836c914c13a1aa47daac722d5b281e56f))
+
+### Chores
+
+- **`.github/always.yml`**: `semantic-release.bot`
+  ([#142](https://github.com/percebus/algorithmic-exercises/pull/142),
+  [`c726367`](https://github.com/percebus/algorithmic-exercises/commit/c726367f3658c63dc20bcd0153be3d6b501fea56))
+
+### Documentation
+
+- **`TODO.md`**: Remove todos converted to issues
+  ([`9d7c50c`](https://github.com/percebus/algorithmic-exercises/commit/9d7c50c85837469e13b105852c578880c8214ca8))
+
+
 ## v5.2.0 (2026-08-31)
 
 ### Documentation
