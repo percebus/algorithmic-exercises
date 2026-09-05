@@ -31,10 +31,20 @@ jobs:
       pull-requests: write # to be able to comment on released pull requests
       security-events: write
     steps:
-      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
-      - uses: percebus/commons/.github/actions/checkout@main
+      - name: create-github-app-token
+        id: github-app-token
+        uses: actions/create-github-app-token@v1
         with:
-          ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
+      # TODO? incorporate into `github-actions-common/.../checkout`?
+      - name: checkout
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.github-app-token.outputs.token }}
+          persist-credentials: false
 
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-python/.github/actions/setup@main
@@ -116,6 +126,7 @@ jobs:
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
+          # NOTE: use APP_PRIVATE_KEY instead?
           ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
 
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
@@ -160,6 +171,7 @@ jobs:
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
+          # NOTE: use APP_PRIVATE_KEY instead?
           ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
 
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
@@ -203,6 +215,8 @@ jobs:
     with:
       language: actions
     secrets:
+      # XXX?
+      # NOTE: use APP_PRIVATE_KEY instead?
       SSH_KEY_PRIVATE: ${{ secrets.SSH_KEY_PRIVATE }}
 
   #
@@ -237,6 +251,7 @@ jobs:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         if: ${{ matrix.run }}
         with:
+          # NOTE: use APP_PRIVATE_KEY instead?
           ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
 
       - name: scripts/prepare.ba.sh
@@ -260,6 +275,7 @@ jobs:
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         with:
+          # NOTE: use APP_PRIVATE_KEY instead?
           ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
 
       - name: scripts/prepare.ba.sh
