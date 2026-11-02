@@ -41,7 +41,7 @@ jobs:
 
       # TODO? incorporate into `github-actions-common/.../checkout`?
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         name: checkout
         with:
           token: ${{ steps.github-app-token.outputs.token }}
@@ -132,11 +132,6 @@ jobs:
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-common/.github/actions/checkout@main
 
-        # XXX
-        # with:
-        #   # NOTE: use APP_PRIVATE_KEY instead?
-        #   ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
-
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-python/.github/actions/setup@main
 
@@ -179,11 +174,6 @@ jobs:
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-common/.github/actions/checkout@main
 
-        # XXX secrets
-        # with:
-        #   # NOTE: use APP_PRIVATE_KEY instead?
-        #   ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
-
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-python/.github/actions/setup@main
         with:
@@ -225,12 +215,6 @@ jobs:
     with:
       language: actions
 
-    # XXX?
-    # secrets:
-    #   # XXX?
-    #   # NOTE: use APP_PRIVATE_KEY instead?
-    #   SSH_KEY_PRIVATE: ${{ secrets.SSH_KEY_PRIVATE }}
-
   #
   docker_build__matrix:
     needs: verify
@@ -263,11 +247,6 @@ jobs:
       - uses: percebus/github-actions-common/.github/actions/checkout@main
         if: ${{ matrix.run }}
 
-        # XXX secrets
-        # with:
-        #   # NOTE: use APP_PRIVATE_KEY instead?
-        #   ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
-
       - name: scripts/prepare.ba.sh
         if: ${{ matrix.run }}
         run: bash scripts/prepare.ba.sh
@@ -288,11 +267,6 @@ jobs:
     steps:
       # nosemgrep: yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag
       - uses: percebus/github-actions-common/.github/actions/checkout@main
-
-        # XXX secrets
-        # with:
-        #   # NOTE: use APP_PRIVATE_KEY instead?
-        #   ssh-private-key: ${{ secrets.SSH_KEY_PRIVATE }}
 
       - name: scripts/prepare.ba.sh
         run: bash scripts/prepare.ba.sh
